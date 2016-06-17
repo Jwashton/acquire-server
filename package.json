@@ -1,0 +1,19 @@
+{
+  "name": "acquire-server",
+  "version": "0.0.1",
+  "description": "A node server for the board game Acquire",
+  "main": "acquire.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwashton/acquire-server.git"
+  },
+  "author": "William Ashton <William@AshtonFam.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jwashton/acquire-server/issues"
+  },
+  "homepage": "https://github.com/Jwashton/acquire-server#readme"
+}
