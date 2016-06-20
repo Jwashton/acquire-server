@@ -1,3 +1,7 @@
+# Compiled Distributables
+acquire.js
+acquire.js.map
+
 # Logs
 logs
 *.log
