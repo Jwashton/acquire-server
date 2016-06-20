@@ -4,6 +4,7 @@
   "description": "A node server for the board game Acquire",
   "main": "acquire.js",
   "scripts": {
+    "build": "babel src -o acquire.js --source-maps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
