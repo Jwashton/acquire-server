@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Jwashton/acquire-server/issues"
   },
-  "homepage": "https://github.com/Jwashton/acquire-server#readme"
+  "homepage": "https://github.com/Jwashton/acquire-server#readme",
+  "devDependencies": {
+    "eslint": "^2.13.1"
+  }
 }
