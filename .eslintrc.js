@@ -116,8 +116,8 @@ const errorsAndPractices = {
   'no-magic-numbers':             error,
   'no-multi-spaces':            [ error, {
     exceptions: {
-      Property: true//,
-    //VariableDeclarator: true,
+      Property: true,
+      VariableDeclarator: true,
     //ImportDeclaration: true
     }
   }],
