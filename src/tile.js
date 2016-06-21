@@ -7,16 +7,16 @@ const LABEL_OFFSET = 1;
 const createTile = function createTile(row = FIRST_ROW, col = FIRST_COL) {
   const tile = { row, col };
 
-  Reflect.defineProperty(tile, 'label', {
-    get() {
+  const methods = {
+    get label() {
       const rowLabel = String.fromCharCode(CHAR_CODE_OFFSET + row);
       const colLabel = col + LABEL_OFFSET;
 
       return colLabel + rowLabel;
     }
-  });
+  };
 
-  return tile;
+  return Object.assign(tile, methods);
 };
 
 export default createTile;
