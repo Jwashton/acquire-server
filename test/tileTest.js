@@ -14,7 +14,12 @@ test('A newly constructed tile has a row', t => {
   t.is(c1.row, 3);
 });
 
-test.todo('A newly constructed tile has a col');
+test('A newly constructed tile has a col', t => {
+  const c4 = createTile(3, 4);
+
+  t.is(c4.col, 4);
+});
+
 test.todo('A newly constructed tile is empty');
 test.todo('A newly constructed tile is not a member of a chain');
 
