@@ -5,6 +5,7 @@
   "main": "acquire.js",
   "scripts": {
     "build": "babel src -o acquire.js --source-maps",
+    "lint": "esw --watch src/ test/",
     "test": "ava --watch"
   },
   "repository": {
@@ -21,7 +22,8 @@
     "ava": "^0.15.2",
     "babel-cli": "^6.10.1",
     "babel-preset-es2015-node6": "^0.2.0",
-    "eslint": "^2.13.1"
+    "eslint": "^2.13.1",
+    "eslint-watch": "^2.1.11"
   },
   "ava": {
     "files": "test/**/*.js",
