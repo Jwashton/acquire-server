@@ -8,7 +8,12 @@ test('row and col default to 0', t => {
   t.deepEqual(blank, a1);
 });
 
-test.todo('A newly constructed tile has a row');
+test('A newly constructed tile has a row', t => {
+  const c1 = createTile(3, 0);
+
+  t.is(c1.row, 3);
+});
+
 test.todo('A newly constructed tile has a col');
 test.todo('A newly constructed tile is empty');
 test.todo('A newly constructed tile is not a member of a chain');
