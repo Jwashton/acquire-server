@@ -15,11 +15,11 @@ const calculateLabel = function calculateLabel(row, col) {
 //
 // Takes 0-indexed row and col values
 const createTile = function createTile(row = FIRST_ROW, col = FIRST_COL) {
-  return {
+  return Object.freeze({
     row,
     col,
     label: calculateLabel(row, col)
-  };
+  });
 };
 
 export default createTile;
