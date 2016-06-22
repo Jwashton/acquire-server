@@ -3,11 +3,11 @@ import createTile from './tile.js';
 const FIRST_ELEMENT = 0;
 const PREVIOUS_ELEMENT = -1;
 
-const buildRow = function buildRow(y, numCols, factory) {
+const buildRow = function buildRow(rowId, numCols, factory) {
   const row = [];
 
   for (let x = FIRST_ELEMENT; x < numCols; x++) {
-    row.push(factory(y, x));
+    row.push(factory(rowId, x));
   }
 
   return row;
@@ -27,8 +27,8 @@ const connectRow = function connectRow(matrix, row) {
 const buildMatrix = function buildMatrix(numRows, numCols, factory) {
   const matrix = [];
 
-  for (let y = FIRST_ELEMENT; y < numRows; y++) {
-    const row = buildRow(y, numCols, factory);
+  for (let rowId = FIRST_ELEMENT; rowId < numRows; rowId++) {
+    const row = buildRow(rowId, numCols, factory);
 
     connectRow(matrix, row);
 

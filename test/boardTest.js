@@ -45,11 +45,11 @@ test('A board will let you access a specific tile', t => {
   t.is(t.context.board.lookup(4, 2), t.context.board.rows[4][2]);
 });
 
-test('Tiles on a newly created board are connected to the north', t => {
 
-  // +-----
-  // |  a
-  // |  b
+// +-----
+// |  a
+// |  b
+test('Tiles on a newly created board are connected to the north', t => {
   const a = t.context.board.lookup(0, 2);
   const b = t.context.board.lookup(1, 2);
 
