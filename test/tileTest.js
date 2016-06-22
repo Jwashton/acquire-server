@@ -5,6 +5,9 @@ test.beforeEach(t => {
   t.context.a1 = createTile(0, 0);
   t.context.c4 = createTile(2, 3);
   t.context.d3 = createTile(3, 2);
+  t.context.d4 = createTile(3, 3);
+  t.context.d5 = createTile(3, 4);
+  t.context.e4 = createTile(2, 3);
 });
 
 test('row and col default to 0', t => {
@@ -29,5 +32,18 @@ test('A tile has a label', t => {
   t.is(t.context.d3.label, '3D');
 });
 
-test.todo('A tile has a collection of neighbors');
-test.todo('A tile can register a neighbor to the north');
+test('A tile has a collection of neighbors', t => {
+  t.truthy(t.context.d4.neighbors[Symbol.iterator]);
+});
+
+test('A tile’s neighbors all all accessible', t => {
+  t.context.d4.north = t.context.c4;
+  t.context.d4.east  = t.context.d5;
+  t.context.d4.south = t.context.e4;
+  t.context.d4.west  = t.context.d3;
+
+  t.plan(4);
+  for (let neighbor of t.context.d4.neighbors) {
+    t.pass();
+  }
+});

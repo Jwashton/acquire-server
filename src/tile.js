@@ -17,7 +17,19 @@ const calculateLabel = function calculateLabel(row, col) {
 const createTile = function createTile(row = FIRST_ROW, col = FIRST_COL) {
   const label = calculateLabel(row, col);
 
-  const tile = { row, col, label };
+  const tile = {
+    row,
+    col,
+    label,
+    get neighbors() {
+      return [
+        tile.north,
+        tile.east,
+        tile.south,
+        tile.west
+      ].filter(Boolean);
+    }
+  };
 
   return tile;
 };
