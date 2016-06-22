@@ -26,7 +26,10 @@ test('A newly constructed tile has a col', t => {
   t.is(t.context.c4.col, 3);
 });
 
-test.todo('A newly constructed tile has not been drawn');
+test('A newly constructed tile is available', t => {
+  t.is(t.context.c4.state, 'available');
+});
+
 test.todo('A newly constructed tile is not a member of a chain');
 
 test('A tile has a label', t => {

@@ -21,6 +21,8 @@ const createTile = function createTile(row = FIRST_ROW, col = FIRST_COL) {
     row,
     col,
     label,
+    state: 'available',
+
     get neighbors() {
       return [
         tile.north,
