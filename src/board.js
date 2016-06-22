@@ -1,5 +1,8 @@
 const createBoard = function createBoard() {
-  return { rows: []};
+  return {
+    rows: [],
+    cols: []
+  };
 };
 
 export default createBoard;
