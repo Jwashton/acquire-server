@@ -36,7 +36,7 @@ test('A tile has a collection of neighbors', t => {
   t.truthy(t.context.d4.neighbors[Symbol.iterator]);
 });
 
-test('A tile’s neighbors all all accessible', t => {
+test('A tile’s neighbors are all accessible', t => {
   t.context.d4.north = t.context.c4;
   t.context.d4.east  = t.context.d5;
   t.context.d4.south = t.context.e4;
