@@ -21,6 +21,13 @@ const connectRow = function connectRow(matrix, row) {
       tile.north = north;
       north.south = tile;
     }
+
+    if (tile.col > FIRST_ELEMENT) {
+      const west = row[tile.col + PREVIOUS_ELEMENT];
+
+      tile.west = west;
+      west.east = tile;
+    }
   }
 };
 

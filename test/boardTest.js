@@ -66,7 +66,26 @@ test('Tiles on a newly created board are connected to the south', t => {
   t.is(a.south, b);
 });
 
-test.todo('Tiles on a newly created board are connected to the east');
-test.todo('Tiles on a newly created board are connected to the west');
+// +-----
+// |
+// | ab
+// |
+test('Tiles on a newly created board are connected to the east', t => {
+  const a = t.context.board.lookup(1, 1);
+  const b = t.context.board.lookup(1, 2);
+
+  t.is(a.east, b);
+});
+
+// +-----
+// |
+// | ab
+// |
+test('Tiles on a newly created board are connected to the west', t => {
+  const a = t.context.board.lookup(1, 1);
+  const b = t.context.board.lookup(1, 2);
+
+  t.is(b.west, a);
+});
 
 test.todo('A board lets you pick an uncliamed tile at random');
