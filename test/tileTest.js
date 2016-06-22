@@ -3,6 +3,8 @@ import createTile from '../src/tile.js';
 
 test.beforeEach(t => {
   t.context.a1 = createTile(0, 0);
+  t.context.a2 = createTile(0, 1);
+  t.context.b1 = createTile(1, 0);
   t.context.c4 = createTile(2, 3);
   t.context.d3 = createTile(3, 2);
   t.context.d4 = createTile(3, 3);
@@ -37,13 +39,27 @@ test('A tile has a collection of neighbors', t => {
 });
 
 test('A tile’s neighbors are all accessible', t => {
-  t.context.d4.north = t.context.c4;
-  t.context.d4.east  = t.context.d5;
-  t.context.d4.south = t.context.e4;
-  t.context.d4.west  = t.context.d3;
+  Object.assign(t.context.d4, {
+    north: t.context.c4,
+    east:  t.context.d5,
+    south: t.context.e4,
+    west:  t.context.d3
+  });
 
   t.plan(4);
-  for (let neighbor of t.context.d4.neighbors) {
+  for (const _neighbor of t.context.d4.neighbors) {
+    t.pass();
+  }
+});
+
+test('A tile’s neighbors do not include missing spaces', t => {
+  Object.assign(t.context.a1, {
+    east:  t.context.a2,
+    south: t.context.b1
+  });
+
+  t.plan(2);
+  for (const _neighbor of t.context.a1.neighbors) {
     t.pass();
   }
 });
