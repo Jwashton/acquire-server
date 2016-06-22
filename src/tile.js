@@ -11,15 +11,27 @@ const calculateLabel = function calculateLabel(row, col) {
   return colLabel + rowLabel;
 };
 
+const constAttr = function constAttr(obj, attr, value) {
+  Reflect.defineProperty(obj, attr, {
+    value,
+    writable:   false,
+    enumerable: true
+  });
+};
+
 // Tile factory
 //
 // Takes 0-indexed row and col values
 const createTile = function createTile(row = FIRST_ROW, col = FIRST_COL) {
-  return Object.freeze({
-    row,
-    col,
-    label: calculateLabel(row, col)
-  });
+  const label = calculateLabel(row, col);
+
+  const tile = {};
+
+  constAttr(tile, 'row', row);
+  constAttr(tile, 'col', col);
+  constAttr(tile, 'label', label);
+
+  return tile;
 };
 
 export default createTile;
