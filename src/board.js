@@ -1,7 +1,8 @@
 const createBoard = function createBoard() {
   return {
-    rows: [],
-    cols: []
+    rows:  [],
+    cols:  [],
+    tiles: []
   };
 };
 
