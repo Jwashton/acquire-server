@@ -177,6 +177,7 @@ const variables = {
   'no-unused-vars':           [ error, {
     args: 'all',
     argsIgnorePattern: '^_',
+    varsIgnorePattern: '^_',
     caughtErrors: 'all',
     caughtErrorsIgnorePattern: '^_'
   }],

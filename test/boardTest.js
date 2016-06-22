@@ -19,7 +19,16 @@ test('A newly created board has a collection of tiles', t => {
   t.truthy(board.tiles[Symbol.iterator]);
 });
 
-test.todo('A newly created board defaults to 9 rows');
+test('A newly created board defaults to 9 rows', t => {
+  t.plan(9);
+
+  const board = createBoard();
+
+  for (const _row of board.rows) {
+    t.pass();
+  }
+});
+
 test.todo('A newly created board defaults to 12 columns');
 
 test.todo('A board will let you access a specific tile');
