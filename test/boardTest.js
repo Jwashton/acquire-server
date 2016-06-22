@@ -36,7 +36,7 @@ test('A newly created board defaults to 9 rows', t => {
 test('Each row defaults to 12 columns', t => {
   t.plan(12);
 
-  for (const _col of t.context.board.rows[2]) {
+  for (const _col of t.context.board.cols) {
     t.pass();
   }
 });

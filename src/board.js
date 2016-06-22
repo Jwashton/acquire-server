@@ -45,6 +45,22 @@ const buildMatrix = function buildMatrix(numRows, numCols, factory) {
   return matrix;
 };
 
+const rotateMatrix = function rotateMatrix(matrix) {
+  const cols = [];
+  const rowPairs = matrix.map((row, rowId) => ({ row, rowId }));
+
+  for (const { row, rowId } of rowPairs) {
+    const cellPairs = row.map((cell, colId) => ({ cell, colId }));
+
+    for (const { cell, colId } of cellPairs) {
+      cols[colId] = cols[colId] || [];
+      cols[colId][rowId] = cell;
+    }
+  }
+
+  return cols;
+};
+
 const DEFAULT_ROWS = 9;
 const DEFAULT_COLS = 12;
 
@@ -52,13 +68,15 @@ const createBoard = function createBoard() {
   const rows = buildMatrix(DEFAULT_ROWS, DEFAULT_COLS, createTile);
 
   const tiles = new Set([].concat(...rows));
+  const cols = rotateMatrix(rows);
+
   const lookup = function lookup(row, col) {
     return rows[row][col];
   };
 
   return {
     rows,
-    cols:  [],
+    cols,
     tiles,
     lookup
   };
