@@ -29,7 +29,15 @@ test('A newly created board defaults to 9 rows', t => {
   }
 });
 
-test.todo('Each row defaults to 12 columns');
+test('Each row defaults to 12 columns', t => {
+  t.plan(12);
+
+  const board = createBoard();
+
+  for (const _col of board.rows[2]) {
+    t.pass();
+  }
+});
 
 test.todo('A board will let you access a specific tile');
 
