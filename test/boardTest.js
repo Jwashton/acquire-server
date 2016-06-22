@@ -1,30 +1,26 @@
 import test from 'ava';
 import createBoard from '../src/board.js';
 
-test('A newly created board has a collection of rows', t => {
-  const board = createBoard();
+test.beforeEach(t => {
+  t.context.board = createBoard();
+});
 
-  t.truthy(board.rows[Symbol.iterator]);
+test('A newly created board has a collection of rows', t => {
+  t.truthy(t.context.board.rows[Symbol.iterator]);
 });
 
 test('A newly created board has a collection of columns', t => {
-  const board = createBoard();
-
-  t.truthy(board.cols[Symbol.iterator]);
+  t.truthy(t.context.board.cols[Symbol.iterator]);
 });
 
 test('A newly created board has a collection of tiles', t => {
-  const board = createBoard();
-
-  t.truthy(board.tiles[Symbol.iterator]);
+  t.truthy(t.context.board.tiles[Symbol.iterator]);
 });
 
 test('A newly created board defaults to 9 rows', t => {
   t.plan(9);
 
-  const board = createBoard();
-
-  for (const _row of board.rows) {
+  for (const _row of t.context.board.rows) {
     t.pass();
   }
 });
@@ -32,9 +28,7 @@ test('A newly created board defaults to 9 rows', t => {
 test('Each row defaults to 12 columns', t => {
   t.plan(12);
 
-  const board = createBoard();
-
-  for (const _col of board.rows[2]) {
+  for (const _col of t.context.board.rows[2]) {
     t.pass();
   }
 });
@@ -42,17 +36,13 @@ test('Each row defaults to 12 columns', t => {
 test('Each cell knows its position', t => {
   t.plan(12);
 
-  const board = createBoard();
-
   for (let x = 0; x < 12; x++) {
-    t.is(board.rows[4][x].col, x);
+    t.is(t.context.board.rows[4][x].col, x);
   }
 });
 
 test('A board will let you access a specific tile', t => {
-  const board = createBoard();
-
-  t.is(board.lookup(4, 2), board.rows[4][2]);
+  t.is(t.context.board.lookup(4, 2), t.context.board.rows[4][2]);
 });
 
 test.todo('Tiles on a newly created board are connected to the north');
