@@ -56,7 +56,16 @@ test('Tiles on a newly created board are connected to the north', t => {
   t.is(b.north, a);
 });
 
-test.todo('Tiles on a newly created board are connected to the south');
+// +-----
+// |  a
+// |  b
+test('Tiles on a newly created board are connected to the south', t => {
+  const a = t.context.board.lookup(0, 2);
+  const b = t.context.board.lookup(1, 2);
+
+  t.is(a.south, b);
+});
+
 test.todo('Tiles on a newly created board are connected to the east');
 test.todo('Tiles on a newly created board are connected to the west');
 
