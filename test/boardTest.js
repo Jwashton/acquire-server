@@ -49,7 +49,11 @@ test('Each cell knows its position', t => {
   }
 });
 
-test.todo('A board will let you access a specific tile');
+test('A board will let you access a specific tile', t => {
+  const board = createBoard();
+
+  t.is(board.lookup(4, 2), board.rows[4][2]);
+});
 
 test.todo('Tiles on a newly created board are connected to the north');
 test.todo('Tiles on a newly created board are connected to the south');

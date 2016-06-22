@@ -22,10 +22,15 @@ const DEFAULT_COLS = 12;
 const createBoard = function createBoard() {
   const rows = buildMatrix(DEFAULT_ROWS, DEFAULT_COLS, createTile);
 
+  const lookup = function lookup(row, col) {
+    return rows[row][col];
+  };
+
   return {
     rows,
     cols:  [],
-    tiles: []
+    tiles: [],
+    lookup
   };
 };
 
