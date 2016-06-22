@@ -49,10 +49,9 @@ test('Each cell knows its position', t => {
   }
 });
 
-test('A board will let you access a specific tile', t => {
+test('A board will let you lookup a specific tile', t => {
   t.is(t.context.board.lookup(4, 2), t.context.board.rows[4][2]);
 });
-
 
 // +-----
 // |  a
