@@ -95,4 +95,6 @@ test('Tiles on a newly created board are connected to the west', t => {
   t.is(b.west, a);
 });
 
-test.todo('A board lets you pick an uncliamed tile at random');
+test.skip('A board tells you how many tiles are available', t => {
+  t.is(t.context.board.tilesAvailable, 108);
+});
