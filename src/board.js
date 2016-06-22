@@ -1,11 +1,13 @@
-const buildMatrix = function buildMatrix(numRows, numCols, _factory) {
+import createTile from './tile.js';
+
+const buildMatrix = function buildMatrix(numRows, numCols, factory) {
   const matrix = [];
 
-  for (let _y = 0; _y < numRows; _y++) {
+  for (let y = 0; y < numRows; y++) {
     const row = [];
 
     for (let x = 0; x < numCols; x++) {
-      row.push(x);
+      row.push(factory(y, x));
     }
 
     matrix.push(row);
@@ -18,7 +20,7 @@ const DEFAULT_ROWS = 9;
 const DEFAULT_COLS = 12;
 
 const createBoard = function createBoard() {
-  const rows = buildMatrix(DEFAULT_ROWS, DEFAULT_COLS);
+  const rows = buildMatrix(DEFAULT_ROWS, DEFAULT_COLS, createTile);
 
   return {
     rows,

@@ -39,6 +39,16 @@ test('Each row defaults to 12 columns', t => {
   }
 });
 
+test('Each cell knows its position', t => {
+  t.plan(12);
+
+  const board = createBoard();
+
+  for (let x = 0; x < 12; x++) {
+    t.is(board.rows[4][x].col, x);
+  }
+});
+
 test.todo('A board will let you access a specific tile');
 
 test.todo('Tiles on a newly created board are connected to the north');
