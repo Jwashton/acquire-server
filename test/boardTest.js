@@ -45,7 +45,17 @@ test('A board will let you access a specific tile', t => {
   t.is(t.context.board.lookup(4, 2), t.context.board.rows[4][2]);
 });
 
-test.todo('Tiles on a newly created board are connected to the north');
+test('Tiles on a newly created board are connected to the north', t => {
+
+  // +-----
+  // |  a
+  // |  b
+  const a = t.context.board.lookup(0, 2);
+  const b = t.context.board.lookup(1, 2);
+
+  t.is(b.north, a);
+});
+
 test.todo('Tiles on a newly created board are connected to the south');
 test.todo('Tiles on a newly created board are connected to the east');
 test.todo('Tiles on a newly created board are connected to the west');
