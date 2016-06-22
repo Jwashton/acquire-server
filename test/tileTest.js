@@ -28,9 +28,3 @@ test('A tile has a label', t => {
   t.is(t.context.c4.label, '4C');
   t.is(t.context.d3.label, '3D');
 });
-
-test('A tile’s row cannot be edited', t => {
-  const action = () => { t.context.c4.row = 6; };
-
-  t.throws(action);
-});
