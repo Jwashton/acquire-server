@@ -51,6 +51,7 @@ const DEFAULT_COLS = 12;
 const createBoard = function createBoard() {
   const rows = buildMatrix(DEFAULT_ROWS, DEFAULT_COLS, createTile);
 
+  const tiles = new Set([].concat(...rows));
   const lookup = function lookup(row, col) {
     return rows[row][col];
   };
@@ -58,7 +59,7 @@ const createBoard = function createBoard() {
   return {
     rows,
     cols:  [],
-    tiles: [],
+    tiles,
     lookup
   };
 };

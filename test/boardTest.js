@@ -17,6 +17,14 @@ test('A newly created board has a collection of tiles', t => {
   t.truthy(t.context.board.tiles[Symbol.iterator]);
 });
 
+test('A newly created board defaults to 108 tiles', t => {
+  t.plan(108);
+
+  for (const _tile of t.context.board.tiles) {
+    t.pass();
+  }
+});
+
 test('A newly created board defaults to 9 rows', t => {
   t.plan(9);
 
