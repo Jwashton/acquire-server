@@ -12,7 +12,7 @@ const calculateLabel = function calculateLabel(row, col) {
 };
 
 const constAttr = function constAttr(obj, attr, value) {
-  Reflect.defineProperty(obj, attr, {
+  return Reflect.defineProperty(obj, attr, {
     value,
     writable:   false,
     enumerable: true
