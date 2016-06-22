@@ -29,7 +29,7 @@ test('A newly created board defaults to 9 rows', t => {
   }
 });
 
-test.todo('A newly created board defaults to 12 columns');
+test.todo('Each row defaults to 12 columns');
 
 test.todo('A board will let you access a specific tile');
 
