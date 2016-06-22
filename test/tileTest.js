@@ -21,10 +21,13 @@ test('A newly constructed tile has a col', t => {
   t.is(t.context.c4.col, 3);
 });
 
-test.todo('A newly constructed tile is empty');
+test.todo('A newly constructed tile has not been drawn');
 test.todo('A newly constructed tile is not a member of a chain');
 
 test('A tile has a label', t => {
   t.is(t.context.c4.label, '4C');
   t.is(t.context.d3.label, '3D');
 });
+
+test.todo('A tile has a collection of neighbors');
+test.todo('A tile can register a neighbor to the north');
