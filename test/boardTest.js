@@ -98,3 +98,11 @@ test('Tiles on a newly created board are connected to the west', t => {
 test('A board tells you how many tiles are available', t => {
   t.is(t.context.board.tilesAvailable, 108);
 });
+
+test('Rotating a matrix works', t => {
+  const board = createBoard(2, 2);
+
+  t.is(board.cols[0][0].label, '1A');
+  t.is(board.cols[0][1].label, '1B');
+  t.is(board.cols[1][0].label, '2A');
+});

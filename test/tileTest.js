@@ -12,12 +12,6 @@ test.beforeEach(t => {
   t.context.e4 = createTile(2, 3);
 });
 
-test('row and col default to 0', t => {
-  const blank = createTile();
-
-  t.deepEqual(blank, t.context.a1);
-});
-
 test('A newly constructed tile has a row', t => {
   t.is(t.context.c4.row, 2);
 });
