@@ -78,7 +78,8 @@ const createBoard = function createBoard() {
     rows,
     cols,
     tiles,
-    lookup
+    lookup,
+    tilesAvailable: 108
   };
 };
 
