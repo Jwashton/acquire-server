@@ -4,13 +4,9 @@ const FIRST_ELEMENT = 0;
 const PREVIOUS_ELEMENT = -1;
 
 const buildRow = function buildRow(rowId, numCols, factory) {
-  const row = [];
+  return [...Array(numCols)].map((_v, i) => factory(rowId, i));
 
-  for (let x = FIRST_ELEMENT; x < numCols; x++) {
-    row.push(factory(rowId, x));
-  }
 
-  return row;
 };
 
 const connectRow = function connectRow(matrix, row) {
