@@ -4,7 +4,7 @@ const error = 'error';
 
 /*
  * Rules I'm not using, but should look at in the future
- * 
+ *
  * complexity
  * no-console
  * no-control-regex
@@ -113,7 +113,7 @@ const errorsAndPractices = {
   'no-labels':                    error,
   'no-lone-blocks':               error,
   'no-loop-func':                 error,
-  'no-magic-numbers':             error,
+  'no-magic-numbers':             [error, {"ignore": [0, 1]}],
   'no-multi-spaces':            [ error, {
     exceptions: {
       Property: true,
