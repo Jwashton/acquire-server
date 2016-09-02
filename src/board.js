@@ -5,24 +5,31 @@ const PREVIOUS_ELEMENT = -1;
 
 const buildRow = function buildRow(rowId, numCols, factory) {
   return [...Array(numCols)].map((_v, i) => factory(rowId, i));
+};
 
+const joinCells = function joinCells(tile, neighbor, ...directions) {
+  const [thisWay, thatWay] = directions;
 
+  tile[thisWay] = neighbor;
+  neighbor[thatWay] = tile;
 };
 
 const connectRow = function connectRow(matrix, row) {
-  for (const tile of row) {
-    if (tile.row > FIRST_ELEMENT) {
-      const north = matrix[tile.row + PREVIOUS_ELEMENT][tile.col];
+  let searchRow, searchCol;
 
-      tile.north = north;
-      north.south = tile;
+  for (const tile of row) {
+    searchRow = tile.row + PREVIOUS_ELEMENT;
+    searchCol = tile.col;
+
+    if (searchRow >= FIRST_ELEMENT) {
+      joinCells(tile, matrix[searchRow][searchCol], 'north', 'south');
     }
 
-    if (tile.col > FIRST_ELEMENT) {
-      const west = row[tile.col + PREVIOUS_ELEMENT];
+    searchRow = tile.row;
+    searchCol = tile.col + PREVIOUS_ELEMENT;
 
-      tile.west = west;
-      west.east = tile;
+    if (searchCol >= FIRST_ELEMENT) {
+      joinCells(tile, matrix[searchRow][searchCol], 'west', 'east');
     }
   }
 };
@@ -33,9 +40,9 @@ const buildMatrix = function buildMatrix(numRows, numCols, factory) {
   for (let rowId = FIRST_ELEMENT; rowId < numRows; rowId++) {
     const row = buildRow(rowId, numCols, factory);
 
-    connectRow(matrix, row);
-
     matrix.push(row);
+
+    connectRow(matrix, row);
   }
 
   return matrix;
